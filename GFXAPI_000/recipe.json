@@ -1,0 +1,33 @@
+{
+  "target": "ECY-S1000",
+  "output": "C:\\Temp\\S1000CalendarTest.gfx",
+
+  "blocks": [
+    {
+      "id": "calendar",
+      "type": "Distech.Gpl.Model.Shapes.Blocks.IP.BacnetIPCalendar",
+      "x": 100,
+      "y": 100
+    },
+    {
+      "id": "stages",
+      "type": "AnalogStages",
+      "x": 350,
+      "y": 100,
+      "properties": {
+        "NumberOfStages": 4
+      }
+    }
+  ],
+
+  "links": [
+    {
+      "from": "calendar.TimeToNextState",
+      "to": "stages.Input"
+    },
+    {
+      "from": "calendar.CurrentState",
+      "to": "stages.Enable"
+    }
+  ]
+}
